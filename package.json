@@ -1,0 +1,58 @@
+{
+  "name": "loan-management-app-backend",
+  "version": "1.0.0",
+  "description": "Loan management application backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "lint": "standard",
+    "lint:fix": "yarn lint --fix",
+    "test:mocha": "cross-env NODE_ENV=test nyc mocha --timeout=10000 --exit --recursive",
+    "test:cover": "cross-env NODE_ENV=test yarn test:mocha \"test/**/*.test.js\"",
+    "test": "yarn lint && yarn test:cover",
+    "createDb": "node_modules/.bin/sequelize db:create",
+    "migrate": "node_modules/.bin/sequelize db:migrate",
+    "seedDb": "node_modules/.bin/sequelize db:seed:all"
+  },
+  "author": "Happiness Nwosu",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "chai-http": "^4.2.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.4",
+    "express-fileupload": "^1.1.1-alpha.1",
+    "formidable": "^1.2.1",
+    "lodash": "^4.17.11",
+    "moneeda-node": "^1.1.1",
+    "multer": "^1.4.1",
+    "nock": "^10.0.0",
+    "pg": "^7.4.3",
+    "response-time": "^2.3.2",
+    "sequelize": "^4.39.0",
+    "sequelize-cli": "^4.1.1"
+  },
+  "devDependencies": {
+    "chai": "4.1.2",
+    "cross-env": "5.1.0",
+    "faker": "4.1.0",
+    "mocha": "4.0.1",
+    "nodemon": "^1.18.9",
+    "nyc": "^13.0.1",
+    "sinon": "4.0.2",
+    "sinon-chai": "2.14.0",
+    "standard": "10.0.3",
+    "supertest": "3.0.0"
+  },
+  "standard": {
+    "env": [
+      "node",
+      "mocha",
+      "chai"
+    ],
+    "globals": [
+      "expect",
+      "sinon"
+    ]
+  }
+}
